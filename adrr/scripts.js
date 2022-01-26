@@ -50,7 +50,7 @@ function delay(refresh_time) {
 
 window.onload = async () => {
 
-    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[9, 11], arr_time=[1, 99]) {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[1, 3], arr_time=[1, 3]) {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
