@@ -1,0 +1,22 @@
+{
+  "short_name": "Loveroku",
+  "name": "Loveroku",
+  "description": "Loveroku - is a new, free app for lonely hearts, which allows you to easily find your love. Want to team up with other lonely people looking for someone to meet, flirt with, or chat with? From a simple chat to a hot flirt and a first date, the Loveroku has everything you need. Come and join! Enjoy meeting with real local members using our best services.",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#808080",
+  "display": "standalone",
+  "theme_color": "#808080"
+}
