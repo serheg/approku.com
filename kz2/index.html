@@ -16,10 +16,10 @@ var url = '';
 if (qs.geo !== 'undefined' && qs.geo) {
    switch (qs.geo) {
       case '{COUNTRY_CODE}':
-         url = 'https://play.google.com/store/apps/details?hl=en&id=com.phonato.casino.slots.vegas.free.game';
+         url = 'https://play.google.com/store/apps/details?hl=en&id=com.phonato.casino.slots.vegas.free.game'+name;
          break;
-      case 'de': 
-         url = 'meh';
+      case 'KAZ': 
+         url = 'https://play.google.com/store/apps/details?hl=en&id=com.phonato.casino.slots.vegas.free.game&name'+name;
          break;
    }
    window.location.href = url; //reroute
