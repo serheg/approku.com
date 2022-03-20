@@ -9,8 +9,7 @@ function getQueryStringArray(){
     }
     return assoc;
 }
-//point at which you want to determine redirection
-var name = $(this).val();    
+//point at which you want to determine redirection 
 var qs = getQueryStringArray();
 var url = '';
 if (qs.geo !== 'undefined' && qs.geo) {
