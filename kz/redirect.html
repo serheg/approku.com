@@ -2,14 +2,7 @@
 <title>https://approku.com</title>
 	<script type="text/javascript">
 var request = new XMLHttpRequest();
-request.onreadystatechange=function(){
-  if (request.readyState==4 && request.status==200){
-    alert(request.status);
-    // To get the response use request.responseText;
-  }
-}
-request.open('GET', 'https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1'+document.location.search);
-request.send(null);
+request.open("GET", "https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1"+document.location.search);
 </script>	
 	
 	<script type="text/javascript">
