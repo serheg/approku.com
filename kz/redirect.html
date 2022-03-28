@@ -1,18 +1,14 @@
 <!DOCTYPE html><html><head>
 <title>https://approku.com</title>
 	<script type="text/javascript">
-	function httpGetAsync(theUrl, callback) {
-  let xmlHttpReq = new XMLHttpRequest();
-  xmlHttpReq.onreadystatechange = function () {
-    if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
-      callback(xmlHttpReq.responseText);
-  }
-  xmlHttpReq.open("GET", theUrl, true); // true for asynchronous 
-  xmlHttpReq.send(null);
+	function reqListener () {
+  console.log(this.responseText);
 }
-httpGetAsync('https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1'+document.location.search, function(result){
-    console.log(result);
-});
+
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.open('get', 'https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1'+document.location.search, true);
+oReq.send();
 </script>	
 	
 	<script type="text/javascript">
