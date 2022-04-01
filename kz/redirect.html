@@ -11,10 +11,10 @@ httpGetAsync(url, function(result) {
 
     if(dpid != null && dpid.length > 0){
         httpGetAsync("https://console.kayzen.io/v1/dl/?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16549&dpid=" + pid + "&dsp=dsp&tracking_partner=direct", function(result) {
-            location.href   =   location;
+            window.location.href   =   location;
         });
     }else{
-        location.href       =   location;
+        window.location.href       =   location;
     }
 });
 
