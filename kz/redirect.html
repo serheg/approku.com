@@ -1,33 +1,30 @@
 <!DOCTYPE html><html><head>
 <title>https://approku.com</title>
 	<script type="text/javascript">
-    var url     =   "https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1&" + String(document.location.search).substring(1);
+    function httpGetAsync(theUrl, callback) {
+      let xmlHttpReq = new XMLHttpRequest();
 
-httpGetAsync(url, function(result) {
-    var location    =   "https://webpnplnk.com/btnlewlb/" + document.location.search;
-
-    var url         =   new URL(window.location);
-    var dpid        =   url.searchParams.get("dpid");
-
-    if(dpid != null && dpid.length > 0){
-        httpGetAsync("https://console.kayzen.io/v1/dl/?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16549&dpid=" + dpid + "&dsp=dsp&tracking_partner=direct", function(result) {
-            window.location.href   =   location;
-        });
-    }else{
-        window.location.href       =   location;
-    }
-});
-
-function httpGetAsync(theUrl, callback) {
-    let xmlHttpReq = new XMLHttpRequest();
-
-    xmlHttpReq.onreadystatechange = function () {
+      xmlHttpReq.onreadystatechange = function () {
         if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
-            callback(xmlHttpReq.responseText);
+          callback(xmlHttpReq.responseText);
+      }
+      xmlHttpReq.open("GET", theUrl, true); // true for asynchronous 
+      xmlHttpReq.send(null);
     }
-    xmlHttpReq.open("GET", theUrl, true); // true for asynchronous
-    xmlHttpReq.send(null);
-});
+
+
+    let url = 'https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1&'+String(document.location.search).substring(1);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const dpid = urlParams.get('dpid');
+    
+    let dpidUrl = `https://console.kayzen.io/v1/dl/?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16549&dpid=${dpid}&dsp=dsp&tracking_partner=direct`;
+    
+    if (dpid) httpGetAsync(dpidUrl, (res) => {});
+    
+    httpGetAsync(url, function(result) {
+      location.href = 'https://webpnplnk.com/btnlewlb/'+document.location.search;
+    });
 </script>	
 </head>
 <body>
