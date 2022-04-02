@@ -18,7 +18,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const dpid = urlParams.get('dpid');
     
-    let dpidUrl = 'https://api-audience.kayzen.io/v1/au/listupdate?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16549&dpid=${dpid}&tracking_partner=direct';
+    let dpidUrl = `https://api-audience.kayzen.io/v1/au/listupdate?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16549&dpid=${dpid}&tracking_partner=direct`;
     
     if (dpid) httpGetAsync(dpidUrl, (res) => {});
     
