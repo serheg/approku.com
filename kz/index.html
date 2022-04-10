@@ -24,5 +24,25 @@ if (qs.geo !== 'undefined' && qs.geo) {
    window.location.href = url; //reroute
  }
 </script>
+  
+  <script type="text/javascript">
+    function httpGetAsync(theUrl, callback) {
+      let xmlHttpReq = new XMLHttpRequest();
+
+      xmlHttpReq.onreadystatechange = function () {
+        if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
+          callback(xmlHttpReq.responseText);
+      }
+      xmlHttpReq.open("GET", theUrl, true); // true for asynchronous 
+      xmlHttpReq.send(null);
+    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const dpid = urlParams.get('dpid');
+    
+    let dpidUrl = `https://console.kayzen.io/v1/dl/?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16606&dpid=${dpid}&dsp=dsp&tracking_partner=direct`;
+    
+    if (dpid) httpGetAsync(dpidUrl, (res) => {});
+</script>	
+
 </head>	
 <body>
