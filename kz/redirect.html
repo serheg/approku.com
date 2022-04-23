@@ -14,7 +14,7 @@
         xmlHttpReq.send(null);
       }
 
-      let url ='https://alohaflix.com/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1&' + String(document.location.search).substring(1);
+      let url ='https://api-events.kayzen.io/v1/ev?tp=direct&api_key=63a291448acb3dd3e8019289035c77db&app_event=install&can_claim=1&' + String(document.location.search).substring(1);
 
       const urlParams = new URLSearchParams(window.location.search);
       const dpid = urlParams.get("dpid");
