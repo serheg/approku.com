@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>https://approku.com</title>
+  
+  <script type="text/javascript">
+function getQueryStringArray(){
+    var assoc=[]; 
+    var items = window.location.search.substring(1).split('&'); 
+    for(var j = 0; j < items.length; j++) { 
+       var a = items[j].split('='); assoc[a[0]] = a[1]; 
+    }
+    return assoc;
+}
+//point at which you want to determine redirection 
+var qs = getQueryStringArray();
+var url = '';
+if (qs.geo !== 'undefined' && qs.geo) {
+   switch (qs.geo) {
+      case '{COUNTRY_CODE}':
+         url = 'https://play.google.com/store/apps/details?hl=en&id=com.phonato.casino.slots.vegas.free.game&sub2='+document.location.search;
+         break;
+      case 'KAZ': 
+         url = 'https://casino.approku.com'+document.location.search;
+         break;
+   }
+   window.location.href = url; //reroute
+ }
+</script>
+
+</head><body></body></html>
