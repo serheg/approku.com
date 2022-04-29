@@ -12,8 +12,8 @@ function getQueryStringArray(){
 //point at which you want to determine redirection 
 var qs = getQueryStringArray();
 var url = '';
-if (qs.COUNTRY_CODE !== 'undefined' && qs.geo) {
-   switch (qs.COUNTRY_CODE) {
+if (qs.geo !== 'undefined' && qs.geo) {
+   switch (qs.geo) {
       case '{COUNTRY_CODE}':
          url = 'https://play.google.com/store/apps/details?hl=en&id=com.phonato.casino.slots.vegas.free.game&sub2='+document.location.search;
          break;
