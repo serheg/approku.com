@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>https://approku.com</title>
+  
+    <script type="text/javascript">
+      function httpGetAsync(theUrl, callback) {
+        let xmlHttpReq = new XMLHttpRequest();
+
+        xmlHttpReq.onreadystatechange = function () {
+          if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
+            callback(xmlHttpReq.responseText);
+        };
+        xmlHttpReq.open("GET", theUrl, true); // true for asynchronous
+        xmlHttpReq.send(null);
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const dpid = urlParams.get("dpid");
+      const psubid = urlParams.get("psubid");
+       
+      let dpidUrl = `https://api-audience.kayzen.io/v1/au/listupdate?api_key=c5ca87a70adfd01959fea679039a0056f64b6191&dl_action=ADD&dl_id=16559&dpid=${dpid}&tracking_partner=direct`;
+
+      if (dpid) httpGetAsync(dpidUrl, (res) => {});
+
+      
+      location.href = `https://bismuni.com/ej8vwqa5h3?key=f3128db890cd233d7325b712764a202a&s2s=${psubid}`;
+      
+    </script>
+  
+  </head><body></body></html>
